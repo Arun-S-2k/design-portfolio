@@ -1187,34 +1187,54 @@ h1 {
   }
 
   .i-mark {
-    font-size: 72px;
+    font-size: 92px;
     line-height: 1;
   }
 
   .i-block {
-    flex-direction: column;
-    gap: 16px;
+    flex-direction: row;
+    align-items: center;
+    gap: 18px;
+  }
+
+  .i-block li {
+    font-size: 15px;
   }
 
   .about {
+    min-height: 100dvh;
+    height: auto;
     padding: 0 16px;
   }
 
   .about-copy {
-    font-size: clamp(22px, 6.4vw, 32px);
+    font-size: clamp(20px, 5.6vw, 28px);
+  }
+
+  .about-copy .word {
+    opacity: 1;
   }
 
   .about-inner {
-    gap: 28px;
-    padding: 80px 0 32px;
+    position: relative;
+    min-height: 100dvh;
+    gap: 20px;
+    padding: 88px 0 32px;
+    justify-content: center;
   }
 
   .about-education {
     font-size: 16px;
+    opacity: 1;
+    transform: none;
   }
 
   .about-education span {
     font-size: 14px;
+  }
+
+  .about-headline {
+    gap: 16px;
   }
 
   .about-cta {

@@ -24,7 +24,6 @@ html {
   scroll-behavior: smooth;
   background: var(--bg);
   transition: background-color 0.16s linear, color 0.16s linear;
-  overflow-x: hidden;
 }
 
 body {
@@ -33,7 +32,6 @@ body {
   color: var(--text);
   font-family: "Figtree", sans-serif;
   transition: background-color 0.16s linear, color 0.16s linear;
-  overflow-x: hidden;
 }
 
 a {
@@ -234,12 +232,14 @@ a {
   z-index: 1;
   user-select: none;
   flex: none;
+  touch-action: none;
 }
 
 .venn-stage {
   position: relative;
   width: 100%;
   height: auto;
+  touch-action: none;
 }
 
 .venn-svg {
@@ -248,6 +248,7 @@ a {
   height: auto;
   overflow: visible;
   font-family: "Kedebideri", serif;
+  touch-action: none;
 }
 
 .venn-ring {
@@ -801,7 +802,8 @@ h1 {
   height: auto;
   min-height: 100vh;
   padding-top: 0;
-  padding-bottom: 80px;
+  padding-bottom: 120px;
+  overflow-x: clip;
 }
 
 .work-veil {
@@ -1202,31 +1204,28 @@ h1 {
   }
 
   .about {
-    min-height: 100dvh;
+    min-height: 260vh;
     height: auto;
     padding: 0 16px;
   }
 
   .about-copy {
-    font-size: clamp(20px, 5.6vw, 28px);
-  }
-
-  .about-copy .word {
-    opacity: 1;
+    font-size: clamp(18px, 5.2vw, 26px);
   }
 
   .about-inner {
-    position: relative;
+    position: sticky;
+    top: 0;
     min-height: 100dvh;
-    gap: 20px;
-    padding: 88px 0 32px;
+    max-height: 100dvh;
+    gap: 16px;
+    padding: 72px 0 24px;
     justify-content: center;
+    overflow: hidden;
   }
 
   .about-education {
     font-size: 16px;
-    opacity: 1;
-    transform: none;
   }
 
   .about-education span {
@@ -1276,8 +1275,8 @@ h1 {
   }
 
   .site-footer {
-    padding: 48px 20px 72px;
-    gap: 16px;
+    padding: 64px 20px 80px;
+    gap: 28px;
   }
 
   .footer-social {
@@ -1323,8 +1322,8 @@ h1 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
-  padding: 80px var(--grid-margin);
+  gap: 36px;
+  padding: 96px var(--grid-margin) 88px;
 }
 
 .footer-social {

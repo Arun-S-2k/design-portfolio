@@ -311,10 +311,17 @@
     setDesignInfluence(point, ids);
   };
 
+  stage.addEventListener("pointerdown", (event) => {
+    stage.setPointerCapture(event.pointerId);
+    apply(hits(event), toSvgPoint(event));
+    event.preventDefault();
+  });
+
   stage.addEventListener("pointermove", (event) => {
     apply(hits(event), toSvgPoint(event));
   });
 
+  stage.addEventListener("pointerup", clear);
   stage.addEventListener("pointerleave", clear);
   stage.addEventListener("pointercancel", clear);
 })();

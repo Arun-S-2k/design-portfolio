@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Arun S — Product Designer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fenix&family=Figtree:ital,wght@0,400;0,500;0,700;1,400&family=Fragment+Mono&family=Frank+Ruhl+Libre:wght@300&family=Inter:wght@400;500&family=Kedebideri:wght@400&family=Manrope:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-frost" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <a class="brand" href="#top">Arun S</a>
+      <div class="header-end">
+        <nav class="nav-links" aria-label="Primary">
+          <a href="#works">Works</a>
+        </nav>
+        <a class="resume-btn" href="assets/ARUN_RESUME.pdf" download>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path
+              d="M12 4v12m0 0-4.5-4.5M12 16l4.5-4.5M5 20h14"
+              stroke="currentColor"
+              stroke-width="1.6"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+          Resume
+        </a>
+      </div>
+    </header>
+
+    <main>
+      <section class="snap hero" id="top" aria-label="Introduction">
+        <canvas class="hero-dot-canvas" id="heroDots" aria-hidden="true"></canvas>
+        <div class="venn is-landing" id="venn">
+          <div class="venn-stage" role="img" aria-labelledby="venn-title">
+            <p id="venn-title" class="visually-hidden">
+              Three overlapping circles: Interactive Interface, Effortless
+              Experience, and Business Outcome. I intersect here.
+            </p>
+
+            <svg
+              class="venn-svg"
+              viewBox="0 -2 469.65 433"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <defs>
+                <clipPath id="clip-design">
+                  <circle cx="234.38" cy="144.51" r="146.71" />
+                </clipPath>
+                <clipPath id="clip-experience">
+                  <circle cx="146.71" cy="282.85" r="146.71" />
+                </clipPath>
+                <clipPath id="clip-outcome">
+                  <circle cx="318.53" cy="282.85" r="146.71" />
+                </clipPath>
+                <path
+                  id="path-label-design"
+                  d="M 118.6 96.8 A 125.12 125.12 0 0 1 350.1 96.8"
+                />
+                <path
+                  id="path-label-experience"
+                  d="M 37.1 222.4 A 125.12 125.12 0 0 0 168 406.1"
+                />
+                <path
+                  id="path-label-outcome"
+                  d="M 296.2 406 A 125.12 125.12 0 0 0 436 240"
+                />
+              </defs>
+
+              <g class="venn-rings">
+                <g class="venn-ring" data-ring="design">
+                  <circle class="venn-base" cx="234.38" cy="144.51" r="146.71" />
+                </g>
+                <g class="venn-ring" data-ring="experience">
+                  <circle class="venn-base" cx="146.71" cy="282.85" r="146.71" />
+                </g>
+                <g class="venn-ring" data-ring="outcome">
+                  <circle class="venn-base" cx="318.53" cy="282.85" r="146.71" />
+                </g>
+              </g>
+
+              <g class="venn-intersect" clip-path="url(#clip-design)">
+                <g clip-path="url(#clip-experience)">
+                  <g clip-path="url(#clip-outcome)">
+                    <rect class="venn-intersect-fill" width="470" height="435" y="-2" fill="#E05409" />
+                  </g>
+                </g>
+              </g>
+
+              <g class="venn-outlines" aria-hidden="true">
+                <g class="venn-design-stroke"></g>
+                <circle
+                  class="venn-outline venn-outline-experience"
+                  cx="146.71"
+                  cy="282.85"
+                  r="146.71"
+                />
+                <circle
+                  class="venn-outline venn-outline-outcome"
+                  cx="318.53"
+                  cy="282.85"
+                  r="146.71"
+                />
+              </g>
+
+              <g class="venn-outcome-icons" clip-path="url(#clip-outcome)" aria-hidden="true">
+                <g class="venn-outcome-icon-wrap" data-icon="rupee">
+                  <g class="venn-outcome-icon">
+                    <circle class="venn-outcome-disc" r="13" fill="#ffffff" />
+                    <text y="0" dominant-baseline="central" text-anchor="middle" class="venn-outcome-glyph">₹</text>
+                  </g>
+                </g>
+                <g class="venn-outcome-icon-wrap" data-icon="bars">
+                  <g class="venn-outcome-icon">
+                    <circle class="venn-outcome-disc" r="13" fill="#ffffff" />
+                    <g class="venn-outcome-mark">
+                      <rect x="-5" y="1.2" width="2.2" height="3.8" rx="0.4" />
+                      <rect x="-1.1" y="-1.2" width="2.2" height="6.2" rx="0.4" />
+                      <rect x="2.8" y="-3.8" width="2.2" height="8.8" rx="0.4" />
+                    </g>
+                  </g>
+                </g>
+                <g class="venn-outcome-icon-wrap" data-icon="trend">
+                  <g class="venn-outcome-icon">
+                    <circle class="venn-outcome-disc" r="13" fill="#ffffff" />
+                    <path
+                      class="venn-outcome-mark venn-outcome-graph"
+                      d="M-5 3.4 L-1.6 -1.8 L1.6 1.4 L5 -3.4"
+                      fill="none"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </g>
+                </g>
+              </g>
+
+              <g class="venn-labels">
+                <text class="venn-label venn-label-design">
+                  <textPath href="#path-label-design" startOffset="50%" text-anchor="middle">
+                    INTERACTIVE INTERFACE
+                  </textPath>
+                </text>
+                <text class="venn-label venn-label-experience">
+                  <textPath href="#path-label-experience" startOffset="50%" text-anchor="middle">
+                    EFFORTLESS EXPERIENCE
+                  </textPath>
+                </text>
+                <text class="venn-label venn-label-outcome">
+                  <textPath href="#path-label-outcome" startOffset="50%" text-anchor="middle">
+                    BUSINESS OUTCOME
+                  </textPath>
+                </text>
+              </g>
+
+              <g class="venn-annotation">
+                <text class="anno-text" x="234.8" y="214" text-anchor="middle">
+                  <tspan x="234.8" dy="0">I</tspan>
+                  <tspan x="234.8" dy="15">intersect</tspan>
+                  <tspan x="234.8" dy="15">here</tspan>
+                </text>
+              </g>
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      <section class="snap about" id="about">
+        <div class="about-inner intro-heading">
+          <div class="about-headline">
+            <p class="about-copy about-copy-start">
+              A film student turned product designer.
+            </p>
+            <p class="about-education">
+              Bachelor of Visual Arts
+              <span>89.6% · First Rank with distinction</span>
+            </p>
+            <p class="about-copy">
+              I've always prioritized storytelling and the user's journey above
+              everything else.
+            </p>
+            <p class="about-copy">
+              Whether it's a 0 → 1 idea or a product with a massive user base,
+              I've done both, and I'm equally at home with either.
+            </p>
+          </div>
+
+          <a class="about-cta" href="assets/ARUN_RESUME.pdf" download>
+            <span>Download resume</span>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path
+                d="M8 3v7m0 0-3-3m3 3 3-3M3 13h10"
+                stroke="currentColor"
+                stroke-width="1.4"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </a>
+        </div>
+      </section>
+
+      <section class="snap i-section" id="education">
+        <div class="i-block">
+          <p class="i-mark" aria-hidden="true">I</p>
+          <ul>
+            <li>find UX friction and fix.</li>
+            <li>build Information that scales.</li>
+            <li>keep brand voice consistent.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="snap certs" id="experience">
+        <h2>Certificates that back me up</h2>
+        <div class="cert-grid">
+          <article>
+            <div class="cert-meta">
+              <p>User Experience Design Fundamentals - IBM</p>
+            </div>
+            <div class="cert-frame">
+              <img src="assets/cert-ibm.png" alt="IBM User Experience Design Fundamentals certificate" />
+            </div>
+          </article>
+          <article>
+            <div class="cert-meta">
+              <p>Digital Skills: User Experience — Accenture</p>
+            </div>
+            <div class="cert-frame">
+              <img src="assets/cert-accenture.png" alt="Accenture Digital Skills User Experience certificate" />
+            </div>
+          </article>
+          <article>
+            <div class="cert-meta">
+              <p>HubSpot Content Hub for Marketers</p>
+            </div>
+            <div class="cert-frame">
+              <img src="assets/cert-hubspot.png" alt="HubSpot Content Hub for Marketers certificate" />
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="snap works" id="works">
+        <div class="work-veil" aria-hidden="true"></div>
+        <div class="work-tabs" role="tablist" aria-label="Works">
+          <button
+            class="work-tab is-on"
+            type="button"
+            role="tab"
+            id="tab-excerpts"
+            aria-selected="true"
+            aria-controls="panel-excerpts"
+            data-tab="excerpts"
+          >
+            Work Excerpts
+          </button>
+          <button
+            class="work-tab"
+            type="button"
+            role="tab"
+            id="tab-cases"
+            aria-selected="false"
+            aria-controls="panel-cases"
+            data-tab="cases"
+          >
+            Case Studies
+          </button>
+        </div>
+
+        <div
+          class="work-panel is-on"
+          id="panel-excerpts"
+          role="tabpanel"
+          aria-labelledby="tab-excerpts"
+        >
+          <div class="excerpt-scroller">
+            <article class="excerpt-slide">
+              <div class="ui-frame">
+                <div class="ui-frame-inner">
+                  <img src="assets/assets/Thunderbol Dashboard.png" alt="Thunderbol dashboard" />
+                </div>
+              </div>
+            </article>
+            <article class="excerpt-slide">
+              <div class="ui-frame">
+                <div class="ui-frame-inner">
+                  <img src="assets/assets/Thunderbol one view.png" alt="Thunderbol one view" />
+                </div>
+              </div>
+            </article>
+            <article class="excerpt-slide">
+              <div class="ui-frame">
+                <div class="ui-frame-inner">
+                  <img src="assets/assets/Thunderbol Customers.png" alt="Thunderbol customers" />
+                </div>
+              </div>
+            </article>
+            <article class="excerpt-slide">
+              <div class="ui-frame">
+                <div class="ui-frame-inner">
+                  <img src="assets/assets/Create Alert.png" alt="Create alert" />
+                </div>
+              </div>
+            </article>
+            <article class="excerpt-slide">
+              <div class="ui-frame">
+                <div class="ui-frame-inner">
+                  <img src="assets/assets/ZAAMZ Customer profile.png" alt="ZAAMZ customer profile" />
+                </div>
+              </div>
+            </article>
+            <article class="excerpt-slide">
+              <div class="ui-frame">
+                <div class="ui-frame-inner">
+                  <img src="assets/assets/Zaamz billings.png" alt="Zaamz billings" />
+                </div>
+              </div>
+            </article>
+            <article class="excerpt-slide">
+              <div class="ui-frame">
+                <div class="ui-frame-inner">
+                  <img src="assets/assets/Zaamz Payout.png" alt="Zaamz payout" />
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div
+          class="work-panel"
+          id="panel-cases"
+          role="tabpanel"
+          aria-labelledby="tab-cases"
+          hidden
+        >
+          <div class="case-grid">
+            <a
+              href="https://www.behance.net/gallery/191090069/Redesigning-Zerodha-Kites-Dashboard-UX-Enhancing"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div class="work-frame">
+                <img src="assets/assets/Case studies/Zerodha kite.png" alt="Zerodha Kite case study" />
+              </div>
+              <p>Redesigning Zerodha Kite's Dashboard | UX Enhancing</p>
+            </a>
+            <a
+              href="https://www.behance.net/gallery/200878931/BIG-BASKET-Usability-Issue-fix"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div class="work-frame">
+                <img src="assets/assets/Case studies/Big basket.png" alt="Big Basket case study" />
+              </div>
+              <p>BIG BASKET | Usability Issue Fix</p>
+            </a>
+            <a
+              href="https://www.behance.net/gallery/162847803/Handyman-Home-Service-Application"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div class="work-frame">
+                <img src="assets/assets/Case studies/Handy man.png" alt="Handyman case study" />
+              </div>
+              <p>Handyman Home Service Application</p>
+            </a>
+            <a
+              href="https://medium.com/@ArOoN./learn-ux-design-through-kitchen-organization-230357cf9b8a"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div class="work-frame">
+                <img src="assets/assets/Case studies/Kitchen and UX.png" alt="Kitchen and UX case study" />
+              </div>
+              <p>Learn UX Design Through Kitchen Organization</p>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Hobbies: hidden until later
+      <section class="snap hobbies">
+        <h2>Things i do on ma me time</h2>
+        <div class="interests" aria-label="Interests">
+          <figure>
+            <div class="interest-art">
+              <svg viewBox="0 0 180 180" fill="none" aria-hidden="true">
+                <circle cx="90" cy="90" r="78" fill="#ffffff" />
+                <path d="M58 128h64M68 128V62h44v66" stroke="#000000" stroke-width="1.6" />
+                <path d="M68 62h44v10H68z" stroke="#000000" stroke-width="1.6" />
+                <rect x="78" y="78" width="24" height="18" stroke="#000000" stroke-width="1.4" />
+                <path d="M86 128l8-22 8 14 6-8" stroke="#000000" stroke-width="1.4" />
+                <circle cx="118" cy="118" r="9" fill="#E05409" />
+                <path d="M118 109v22M110 124h16" stroke="#000000" stroke-width="1.3" />
+              </svg>
+            </div>
+            <figcaption>Paintings</figcaption>
+          </figure>
+          <figure>
+            <div class="interest-art">
+              <svg viewBox="0 0 180 180" fill="none" aria-hidden="true">
+                <circle cx="90" cy="90" r="78" fill="#ffffff" />
+                <rect x="78" y="48" width="24" height="18" rx="2" stroke="#000000" stroke-width="1.6" />
+                <path d="M90 66v18M72 84h36" stroke="#000000" stroke-width="1.6" />
+                <path d="M78 84l-8 10h40l-8-10" stroke="#000000" stroke-width="1.6" />
+                <path d="M90 94v22" stroke="#000000" stroke-width="1.6" />
+                <rect x="82" y="116" width="16" height="14" rx="2" fill="#E05409" stroke="#000000" stroke-width="1.2" />
+                <path d="M70 136h40" stroke="#000000" stroke-width="1.6" />
+              </svg>
+            </div>
+            <figcaption>3D Printing</figcaption>
+          </figure>
+          <figure>
+            <div class="interest-art">
+              <svg viewBox="0 0 180 180" fill="none" aria-hidden="true">
+                <circle cx="90" cy="90" r="78" fill="#ffffff" />
+                <ellipse cx="90" cy="108" rx="38" ry="28" stroke="#000000" stroke-width="1.6" />
+                <path d="M52 108c0-28 17-52 38-52s38 24 38 52" stroke="#000000" stroke-width="1.6" />
+                <path d="M90 56v12" stroke="#000000" stroke-width="1.6" />
+                <path d="M78 108c4-16 10-22 12-28 4 8 8 16 14 28" stroke="#000000" stroke-width="1.4" />
+                <circle cx="118" cy="78" r="8" fill="#E05409" />
+              </svg>
+            </div>
+            <figcaption>Terrarium</figcaption>
+          </figure>
+          <figure>
+            <div class="interest-art">
+              <svg viewBox="0 0 180 180" fill="none" aria-hidden="true">
+                <circle cx="90" cy="90" r="78" fill="#ffffff" />
+                <circle cx="78" cy="96" r="28" stroke="#000000" stroke-width="1.6" />
+                <circle cx="78" cy="96" r="12" stroke="#000000" stroke-width="1.4" />
+                <text x="78" y="102" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" fill="#000000">8</text>
+                <path d="M118 48l-18 86" stroke="#000000" stroke-width="1.6" stroke-linecap="round" />
+                <circle cx="120" cy="128" r="8" fill="#E05409" />
+              </svg>
+            </div>
+            <figcaption>Billiards</figcaption>
+          </figure>
+          <figure>
+            <div class="interest-art">
+              <svg viewBox="0 0 180 180" fill="none" aria-hidden="true">
+                <circle cx="90" cy="90" r="78" fill="#ffffff" />
+                <rect x="52" y="52" width="76" height="48" rx="4" stroke="#000000" stroke-width="1.6" />
+                <path d="M84 68l16 8-16 8V68z" fill="#000000" />
+                <ellipse cx="90" cy="128" rx="22" ry="10" stroke="#000000" stroke-width="1.5" />
+                <circle cx="124" cy="122" r="8" fill="#E05409" />
+                <path d="M80 122c4-6 12-8 20 0" stroke="#000000" stroke-width="1.3" />
+              </svg>
+            </div>
+            <figcaption>Film Watching</figcaption>
+          </figure>
+          <figure>
+            <div class="interest-art">
+              <svg viewBox="0 0 180 180" fill="none" aria-hidden="true">
+                <circle cx="90" cy="90" r="78" fill="#ffffff" />
+                <circle cx="118" cy="58" r="10" fill="#E05409" />
+                <path d="M48 132c18-22 38-34 70-28" stroke="#000000" stroke-width="1.6" />
+                <path d="M78 128c2-10 8-16 14-16 2 8 6 12 10 16" stroke="#000000" stroke-width="1.5" />
+                <path d="M62 70c8-6 14-4 16 2M108 78c8-8 16-6 18 2" stroke="#000000" stroke-width="1.3" stroke-linecap="round" />
+              </svg>
+            </div>
+            <figcaption>Fly Exist &amp; Observe</figcaption>
+          </figure>
+        </div>
+      </section>
+      -->
+
+    </main>
+
+    <footer class="site-footer">
+      <nav class="footer-social" aria-label="Social">
+        <a
+          href="https://www.linkedin.com/in/arun-s-548012224/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          LinkedIn
+          <svg viewBox="0 0 12 12" aria-hidden="true">
+            <path
+              d="M3 9L9 3M4.2 3H9v4.8"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.4"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </a>
+        <a
+          href="https://www.behance.net/aroons"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Behance
+          <svg viewBox="0 0 12 12" aria-hidden="true">
+            <path
+              d="M3 9L9 3M4.2 3H9v4.8"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.4"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </a>
+        <a
+          href="https://medium.com/@ArOoN."
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Medium
+          <svg viewBox="0 0 12 12" aria-hidden="true">
+            <path
+              d="M3 9L9 3M4.2 3H9v4.8"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.4"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </a>
+      </nav>
+
+      <div class="footer-message">
+        <p>If this feels right,</p>
+        <p class="accent">let's talk about your product and goals.</p>
+      </div>
+
+      <div class="footer-mail">
+        <a href="mailto:arun.sellaiah@gmail.com">
+          <svg
+            width="22"
+            height="22"
+            viewBox="0 0 22 22"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+          >
+            <g clip-path="url(#clip-footer-mail-0)">
+              <g clip-path="url(#clip-footer-mail-1)">
+                <path
+                  d="M2.40625 11.0729C2.40625 16.2937 4.44103 17.9001 11.0541 17.9001C17.6672 17.9001 19.702 16.2937 19.702 11.0729C19.702 8.60433 19.2471 6.94386 18.0684 5.87915C16.7542 4.69205 14.5404 4.24561 11.0541 4.24561C7.56785 4.24561 5.35396 4.69205 4.03979 5.87915C2.86115 6.94386 2.40625 8.60433 2.40625 11.0729Z"
+                  stroke="currentColor"
+                  stroke-width="1.63381"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M18.0689 5.87891L12.3419 11.6059C11.6309 12.3168 10.4782 12.3168 9.76726 11.6059L4.04028 5.87891"
+                  stroke="currentColor"
+                  stroke-width="1.63381"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </g>
+            </g>
+            <defs>
+              <clipPath id="clip-footer-mail-0">
+                <rect width="22" height="22" fill="white" />
+              </clipPath>
+              <clipPath id="clip-footer-mail-1">
+                <rect width="22" height="22" fill="white" />
+              </clipPath>
+            </defs>
+          </svg>
+          <span>arun.sellaiah@gmail.com</span>
+        </a>
+        <button
+          class="footer-copy"
+          type="button"
+          data-copy="arun.sellaiah@gmail.com"
+          aria-label="Copy email"
+        >
+          <svg viewBox="0 0 16 16" aria-hidden="true">
+            <rect
+              x="5.25"
+              y="5.25"
+              width="8.5"
+              height="8.5"
+              rx="1.4"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.4"
+            />
+            <path
+              d="M11 5V3.6A1.35 1.35 0 0 0 9.65 2.25H3.6A1.35 1.35 0 0 0 2.25 3.6v6.05A1.35 1.35 0 0 0 3.6 11H5"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.4"
+              stroke-linecap="round"
+            />
+          </svg>
+        </button>
+      </div>
+    </footer>
+
+    <aside class="theme-dock" aria-label="Site color">
+      <div
+        class="theme-track"
+        role="slider"
+        tabindex="0"
+        aria-valuemin="0"
+        aria-valuemax="14"
+        aria-valuenow="0"
+        aria-valuetext="White"
+        aria-label="Drag to change site color"
+      >
+        <div class="theme-dots" aria-hidden="true"></div>
+        <span class="theme-knob" aria-hidden="true">
+          <svg class="icon theme" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+            <path d="M17 2h-2v6h2V2zm-1 8c-3.31372 0-6 2.68628-6 6s2.68628 6 6 6 6-2.68628 6-6-2.68628-6-6-6zm0 10c-2.20911 0-4-1.79089-4-4s1.79089-4 4-4 4 1.79089 4 4-1.79089 4-4 4zm-1 10h2v-6h-2v6zM11.05029 9.63605 6.80762 5.39337 5.39337 6.80762l4.24268 4.24268 1.41424-1.41425zm9.89954 12.72796 4.24255 4.24261 1.41425-1.41425-4.24261-4.24268-1.41419 1.41432zM8 15H2v2h6v-2zm16 0v2h6v-2h-6zM5.39337 25.19238l1.41425 1.41425 4.24268-4.24261-1.41425-1.41431-4.24268 4.24267zM26.60663 6.80762l-1.41425-1.41425-4.24268 4.24268 1.41431 1.41412 4.24262-4.24255z"></path>
+          </svg>
+        </span>
+      </div>
+    </aside>
+    <script src="venn.js"></script>
+    <script src="page.js"></script>
+    <script src="theme.js"></script>
+  </body>
+</html>

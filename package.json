@@ -1,0 +1,10 @@
+{
+  "name": "portfolio",
+  "private": true,
+  "scripts": {
+    "dev": "live-server --port=5173 --no-browser --ignore=node_modules,.git"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}

@@ -40,6 +40,7 @@
   let pieceOffsets = PIECE_OFFSETS.map(() => 0);
   let animating = false;
   let rafId = 0;
+  let previewing = false;
 
   const smoothstep = (t) => {
     const clamped = Math.max(0, Math.min(1, t));
@@ -219,7 +220,7 @@
     if (!outcomeIconsHost) return;
 
     const placements = [
-      { angle: -0.2, radius: 88, selector: '[data-icon="rupee"]' },
+      { angle: -0.2, radius: 88, selector: '[data-icon="dollar"]' },
       { angle: 0.42, radius: 88, selector: '[data-icon="trend"]' },
       { angle: 1.12, radius: 88, selector: '[data-icon="bars"]' },
     ];
@@ -267,6 +268,7 @@
   };
 
   const clear = () => {
+    if (previewing) return;
     root.classList.remove(
       "is-hot",
       "is-blend",
@@ -280,7 +282,40 @@
     resetDesignInfluence();
   };
 
+  const showHoverPreview = () => {
+    previewing = true;
+    root.classList.add(
+      "is-design-hover",
+      "is-experience-hover",
+      "is-outcome-hover"
+    );
+    rings.forEach((ring) => ring.classList.add("is-on"));
+    setDesignInfluence(
+      { x: DESIGN.cx, y: DESIGN.cy - DESIGN.r * 0.92 },
+      ["design"]
+    );
+  };
+
+  const endHoverPreview = () => {
+    previewing = false;
+    clear();
+  };
+
+  if (!reducedMotion) {
+    document.addEventListener("theme-tour-start", showHoverPreview, {
+      once: true,
+    });
+    document.addEventListener(
+      "theme-tour-done",
+      () => {
+        window.setTimeout(endHoverPreview, 1500);
+      },
+      { once: true }
+    );
+  }
+
   const apply = (ids, point) => {
+    if (previewing) return;
     if (!ids.length) {
       root.classList.remove(
         "is-hot",
@@ -312,9 +347,13 @@
   };
 
   stage.addEventListener("pointerdown", (event) => {
-    stage.setPointerCapture(event.pointerId);
+    const allowPullRefresh =
+      event.pointerType === "touch" && window.scrollY <= 2;
+    if (!allowPullRefresh) {
+      stage.setPointerCapture(event.pointerId);
+      event.preventDefault();
+    }
     apply(hits(event), toSvgPoint(event));
-    event.preventDefault();
   });
 
   stage.addEventListener("pointermove", (event) => {

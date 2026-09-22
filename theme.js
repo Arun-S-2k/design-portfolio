@@ -117,11 +117,13 @@
     if (reducedMotion) {
       applyIndex(0);
       dock.classList.add("is-ready");
+      document.dispatchEvent(new CustomEvent("theme-tour-done"));
       return;
     }
 
     touring = true;
     dock.classList.add("is-touring");
+    document.dispatchEvent(new CustomEvent("theme-tour-start"));
     const sequence = [];
     for (let i = 0; i <= LAST; i += 1) sequence.push(i);
     for (let i = LAST - 1; i >= 0; i -= 1) sequence.push(i);
@@ -136,6 +138,7 @@
         return;
       }
       applyIndex(0);
+      document.dispatchEvent(new CustomEvent("theme-tour-done"));
       window.setTimeout(() => {
         touring = false;
         dock.classList.remove("is-touring");

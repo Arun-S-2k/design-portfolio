@@ -23,6 +23,7 @@
 html {
   scroll-behavior: smooth;
   background: var(--bg);
+  overscroll-behavior-y: none;
   transition: background-color 0.16s linear, color 0.16s linear;
 }
 
@@ -1746,6 +1747,16 @@ h1 {
 }
 
 @media (max-width: 700px) {
+  html {
+    overscroll-behavior-y: auto;
+  }
+
+  .venn,
+  .venn-stage,
+  .venn-svg {
+    touch-action: pan-y;
+  }
+
   .theme-dock,
   .back-top {
     right: 22px;

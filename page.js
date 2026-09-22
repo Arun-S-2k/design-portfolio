@@ -1,4 +1,15 @@
 (() => {
+  if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+  const jumpTop = () => {
+    document.documentElement.style.scrollBehavior = "auto";
+    window.scrollTo(0, 0);
+    window.requestAnimationFrame(() => {
+      document.documentElement.style.scrollBehavior = "";
+    });
+  };
+  jumpTop();
+  window.addEventListener("pageshow", jumpTop);
+
   const venn = document.getElementById("venn");
   if (venn) {
     window.setTimeout(() => {
@@ -107,26 +118,69 @@
     window.scrollBy({ top: panelTop - tabsBottom - 24, behavior: "auto" });
   };
 
+  const selectWorkTab = (id) => {
+    const tab = tabs.find((item) => item.dataset.tab === id);
+    if (!tab) return;
+    const alreadyOn = tab.classList.contains("is-on");
+    tab.focus({ preventScroll: true });
+    tabs.forEach((item) => {
+      const on = item === tab;
+      item.classList.toggle("is-on", on);
+      item.setAttribute("aria-selected", on ? "true" : "false");
+    });
+    panels.forEach((panel) => {
+      const on = panel.id === `panel-${id}`;
+      panel.classList.toggle("is-on", on);
+      panel.hidden = !on;
+    });
+    if (alreadyOn) return;
+    window.requestAnimationFrame(() => {
+      window.requestAnimationFrame(scrollToPanelStart);
+    });
+  };
+
   tabs.forEach((tab) => {
     tab.addEventListener("click", (event) => {
       event.preventDefault();
-      tab.focus({ preventScroll: true });
-      const id = tab.dataset.tab;
-      tabs.forEach((item) => {
-        const on = item === tab;
-        item.classList.toggle("is-on", on);
-        item.setAttribute("aria-selected", on ? "true" : "false");
-      });
-      panels.forEach((panel) => {
-        const on = panel.id === `panel-${id}`;
-        panel.classList.toggle("is-on", on);
-        panel.hidden = !on;
-      });
-      window.requestAnimationFrame(() => {
-        window.requestAnimationFrame(scrollToPanelStart);
-      });
+      selectWorkTab(tab.dataset.tab);
     });
   });
+
+  const worksSection = document.querySelector(".works");
+  const phoneWorks = window.matchMedia("(max-width: 700px)");
+  if (worksSection && tabs.length === 2) {
+    let swipeX = 0;
+    let swipeY = 0;
+    let swiping = false;
+
+    worksSection.addEventListener(
+      "touchstart",
+      (event) => {
+        if (!phoneWorks.matches || event.touches.length !== 1) return;
+        if (event.target.closest(".back-top, .work-tab")) return;
+        const touch = event.touches[0];
+        swipeX = touch.clientX;
+        swipeY = touch.clientY;
+        swiping = true;
+      },
+      { passive: true }
+    );
+
+    worksSection.addEventListener(
+      "touchend",
+      (event) => {
+        if (!swiping) return;
+        swiping = false;
+        if (!phoneWorks.matches) return;
+        const touch = event.changedTouches[0];
+        const dx = touch.clientX - swipeX;
+        const dy = touch.clientY - swipeY;
+        if (Math.abs(dx) < 56 || Math.abs(dx) <= Math.abs(dy) * 1.2) return;
+        selectWorkTab(dx < 0 ? "cases" : "excerpts");
+      },
+      { passive: true }
+    );
+  }
 
   const copyBtn = document.querySelector(".footer-copy");
   if (copyBtn) {

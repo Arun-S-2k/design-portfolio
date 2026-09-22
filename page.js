@@ -97,9 +97,20 @@
 
   const tabs = [...document.querySelectorAll(".work-tab")];
   const panels = [...document.querySelectorAll(".work-panel")];
+  const workTabs = document.querySelector(".work-tabs");
+
+  const scrollToPanelStart = () => {
+    const panel = document.querySelector(".work-panel.is-on");
+    if (!panel || !workTabs) return;
+    const tabsBottom = workTabs.getBoundingClientRect().bottom;
+    const panelTop = panel.getBoundingClientRect().top;
+    window.scrollBy({ top: panelTop - tabsBottom - 24, behavior: "auto" });
+  };
 
   tabs.forEach((tab) => {
-    tab.addEventListener("click", () => {
+    tab.addEventListener("click", (event) => {
+      event.preventDefault();
+      tab.focus({ preventScroll: true });
       const id = tab.dataset.tab;
       tabs.forEach((item) => {
         const on = item === tab;
@@ -110,6 +121,9 @@
         const on = panel.id === `panel-${id}`;
         panel.classList.toggle("is-on", on);
         panel.hidden = !on;
+      });
+      window.requestAnimationFrame(() => {
+        window.requestAnimationFrame(scrollToPanelStart);
       });
     });
   });
@@ -134,5 +148,51 @@
       copyBtn.classList.add("is-copied");
       window.setTimeout(() => copyBtn.classList.remove("is-copied"), 1400);
     });
+  }
+
+  const backTop = document.querySelector(".back-top");
+  const works = document.querySelector(".works");
+  if (backTop && works) {
+    backTop.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+    const toggleBackTop = () => {
+      const start = works.getBoundingClientRect().top + window.scrollY - 80;
+      backTop.classList.toggle("is-on", window.scrollY >= start);
+    };
+    toggleBackTop();
+    window.addEventListener("scroll", toggleBackTop, { passive: true });
+    window.addEventListener("resize", toggleBackTop);
+  }
+
+  const iSection = document.querySelector(".i-section");
+  if (iSection && !prefersReducedMotion) {
+    const introCard = iSection.querySelector(".intro-card");
+    const iBlock = iSection.querySelector(".i-block");
+    const arrive = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) iSection.classList.add("is-in");
+      },
+      { threshold: 0.12, rootMargin: "0px 0px -8% 0px" }
+    );
+    arrive.observe(iSection);
+
+    const allowParallax = window.matchMedia("(min-width: 701px)").matches;
+    const shiftIntro = () => {
+      if (!allowParallax || !iSection.classList.contains("is-in") || !introCard) {
+        introCard?.style.setProperty("--shift", "0px");
+        iBlock?.style.setProperty("--shift", "0px");
+        return;
+      }
+      const rect = iSection.getBoundingClientRect();
+      const mid = rect.top + rect.height / 2 - window.innerHeight / 2;
+      const shift = Math.max(-22, Math.min(22, mid * 0.06));
+      introCard.style.setProperty("--shift", `${shift.toFixed(1)}px`);
+      iBlock?.style.setProperty("--shift", `${(shift * 0.45).toFixed(1)}px`);
+    };
+    window.addEventListener("scroll", shiftIntro, { passive: true });
+    window.addEventListener("resize", shiftIntro);
+  } else if (iSection) {
+    iSection.classList.add("is-in");
   }
 })();
